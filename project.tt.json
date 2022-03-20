@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "light-community",
+  "description": "light community",
+  "appid": "wx4502ad10db589391",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

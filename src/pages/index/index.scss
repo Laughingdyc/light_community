@@ -1,0 +1,15 @@
+.homepage_wrapper{
+  padding-bottom: 200px;
+
+  .wrapper{
+    padding: 16px;
+  }
+
+  .fix_button_wrapper{
+    z-index: 900;
+    position: fixed;
+    bottom: calc(env(safe-area-inset-bottom) + 50px);
+    bottom: calc(constant(safe-area-inset-bottom) + 50px);
+    right: 320px;
+  }
+}
