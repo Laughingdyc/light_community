@@ -2,7 +2,7 @@
 <template>
   <view class="wrapper" :class="{ 'left_wrapper': isOdd }">
     <view class="uers_info_wrapper">
-      <AtAvatar class="avatar" size='small' circle='true' :image='preData && preData.avatar'></AtAvatar>
+      <AtAvatar size='small' circle='true' :image='preData && preData.avatar'></AtAvatar>
       <text class="name">{{ preData && preData.name }}</text>
     </view>
     <view class='at-article'>
