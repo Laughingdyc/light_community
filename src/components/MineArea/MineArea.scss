@@ -1,0 +1,66 @@
+.avatar_wrapper_top{
+  position: relative;
+  height: 120px;
+  width: 100%;
+  background-color: #facd91;
+
+
+  .avatar_wrapper{
+    padding: 0 30px;
+    position: absolute;
+    bottom: -75px;
+    height: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    @include between;
+
+    .avatar{
+      height: 150px;
+      width: 150px;
+      border-radius: 75px;
+    }
+
+    .edit_wrapper{
+      display: inline-flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding-bottom: 20px;
+      width: 500px;
+      height: 100%;
+
+      .edit{
+        font-size: 26px;
+        color: $def_blue;
+      }
+
+      .identity{
+        font-size: 600;
+        font-size: 26px;
+        color: $def_gold;
+      }
+    }
+  }
+}
+.avatar_wrapper_bot{
+  height: 75px;
+  width: 100%;
+}
+.userinfo_wrapper{
+  height: 150px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  @include left_column;
+
+  .username{
+    color: $def_head;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .userid{
+    color: $def_gray;
+    font-size: 26px;
+  }
+}

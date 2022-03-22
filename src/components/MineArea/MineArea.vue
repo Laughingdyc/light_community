@@ -6,9 +6,17 @@
         mode="{{ 'aspectFit' }}" 
         :src="avatar">
       </image>
+      <view :class="$style['edit_wrapper']">
+        <text :class="$style['edit']">{{ '编辑' }}</text>
+        <view :class="$style['identity']" class='at-icon at-icon-sketch'><text :class="$style['identity']">{{ '校园认证' }}</text></view>
+      </view>
     </view>
   </view>
   <view :class="$style['avatar_wrapper_bot']"></view>
+  <view :class="$style['userinfo_wrapper']">
+    <text :class="$style['username']">{{ '飞翔的豆腐' }}</text>
+    <text :class="$style['userid']">{{ '学号：' + '1601110888' }}</text>
+  </view>
 </template>
 
 <script>
@@ -23,5 +31,6 @@ export default {
 </script>
 
 <style lang='sass' module>
-  @import './Mine.scss'
+  @import '../../common/style/common.scss'
+  @import './MineArea.scss'
 </style>

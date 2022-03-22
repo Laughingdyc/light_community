@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, PropType } from 'vue'
+  import { defineComponent, reactive, toRefs, PropType, onMounted } from 'vue'
   export interface iListData {
     id      : number,
     avatar  : string,
@@ -65,7 +65,8 @@
       }
     },
     setup () {
-      const state = reactive({
+      const state = reactive({})
+      onMounted(() => {
       })
       return {
         ...toRefs(state)

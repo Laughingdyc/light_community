@@ -1,7 +1,7 @@
 <template>
   <view :class="$style.fix_button_wrapper">
-    <AtFab>
-      <text class='at-fab__icon at-icon at-icon-add'></text>
+    <AtFab @click="handleSubmitBtn">
+      <view :animation="animationData" class='at-fab__icon at-icon at-icon-add'></view>
     </AtFab>
   </view>
   <AtTabBar
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, ref } from "vue"
+  import { computed, defineComponent, onMounted, ref } from "vue"
   import { useStore } from 'vuex'
   import Taro from '@tarojs/taro'
   interface iBarcolor {
@@ -42,6 +42,21 @@
       }
     },
   ]
+  let _ratate = 0
+  const _animation = ( speed: 'slow' | 'fast' ) => {
+    switch (speed) {
+      case 'slow':
+        return Taro.createAnimation({
+          duration: 1000,
+          timingFunction: 'ease-in-out',
+        })
+      case 'fast':
+        return Taro.createAnimation({
+          duration: 300,
+          timingFunction: 'ease-in-out',
+        })
+    }
+  }
   export default defineComponent({
     setup() {
       const tabList = ref([
@@ -49,6 +64,32 @@
         { title: '我的', iconType: 'user', NavBarName: '个人主页'}
       ])
       const store = useStore()
+      const animationData = ref({})
+
+      onMounted(() => {
+        slowRotate()
+        handleClick(1)
+      })
+      /**
+       * 入页按钮慢旋转
+       */
+      const slowRotate = () => {
+        const animation = _animation('slow')
+        setTimeout(() => {
+          _ratate += 1800
+          animation.rotate(_ratate).step()
+          animationData.value = animation.export()
+        }, 300)
+      }
+      /**
+       * 点击按钮快旋转
+       */
+      const fastRotate = () => {
+        const animation = _animation('fast')
+        _ratate += 180
+        animation.rotate(_ratate).step()
+        animationData.value = animation.export()
+      }
       const current_tab = computed(() => store.getters.homepage_bot_tab)
       /**
        * AtTabBar 点击事件
@@ -61,11 +102,19 @@
         })
         Taro.setNavigationBarColor(barColors[current_tab.value])
       }
+      const handleSubmitBtn = () => {
+        fastRotate()
+        setTimeout(() => {
+          Taro.navigateTo({ url: '/pages/testpage/testpage' })
+        }, 300);
+      }
   
       return {
         tabList,
         current_tab,
-        handleClick
+        handleClick,
+        animationData,
+        handleSubmitBtn
       }
     }
   })

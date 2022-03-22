@@ -10,6 +10,13 @@
   align-items: center;
 }
 
+@mixin left_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
 @mixin right {
   display: flex;
   justify-content: flex-end;
@@ -27,3 +34,9 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+$def_blue: #6190e8;
+$def_gold: #FFC82C;
+$def_head: #2C405A;
+$def_dark: #3F536E;
+$def_gray: #8DABC4;
