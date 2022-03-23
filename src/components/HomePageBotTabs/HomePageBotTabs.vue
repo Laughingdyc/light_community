@@ -5,7 +5,7 @@
     </AtFab>
   </view>
   <AtTabBar
-    backgroundColor='#ececec'
+    :backgroundColor='botTabBgColor'
     fixed
     :tabList="tabList"
     @click="handleClick($event)"
@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+  import { themeColor } from '../../common/ts/common.color'
   import { computed, defineComponent, onMounted, ref } from "vue"
   import { useStore } from 'vuex'
   import Taro from '@tarojs/taro'
@@ -28,14 +29,14 @@
   const barColors: iBarcolor[] = [
     {
       frontColor: '#000000',
-      backgroundColor: '#ffffff',
+      backgroundColor: themeColor.off_white_bg,
       animation: {
         duration: 500,
         timingFunc: 'easeIn'
       }
     },{
       frontColor: '#ffffff',
-      backgroundColor: '#facd91',
+      backgroundColor: themeColor.door,
       animation: {
         duration: 100,
         timingFunc: 'easeIn'
@@ -59,6 +60,9 @@
   }
   export default defineComponent({
     setup() {
+      const botTabBgColor = ref(
+        themeColor.wall
+      )
       const tabList = ref([
         { title: '广场', iconType: 'home', NavBarName: '轻工大集市'},
         { title: '我的', iconType: 'user', NavBarName: '个人主页'}
@@ -68,7 +72,6 @@
 
       onMounted(() => {
         slowRotate()
-        handleClick(1)
       })
       /**
        * 入页按钮慢旋转
@@ -84,9 +87,9 @@
       /**
        * 点击按钮快旋转
        */
-      const fastRotate = () => {
+      const fastRotate = (ratate: number) => {
         const animation = _animation('fast')
-        _ratate += 180
+        _ratate = _ratate + ratate
         animation.rotate(_ratate).step()
         animationData.value = animation.export()
       }
@@ -96,6 +99,7 @@
        * @param {Number} $event 0 - 广场, 1 - 我的
        */
       const handleClick = ($event: Number) => {
+        fastRotate( $event ===0 ? 90 : -90 )
         store.dispatch('set_homepage_bot_tab', $event)
         Taro.setNavigationBarTitle({
           title: tabList['value'][current_tab.value]['NavBarName']
@@ -103,7 +107,7 @@
         Taro.setNavigationBarColor(barColors[current_tab.value])
       }
       const handleSubmitBtn = () => {
-        fastRotate()
+        fastRotate(180)
         setTimeout(() => {
           Taro.navigateTo({ url: '/pages/testpage/testpage' })
         }, 300);
@@ -114,7 +118,8 @@
         current_tab,
         handleClick,
         animationData,
-        handleSubmitBtn
+        handleSubmitBtn,
+        botTabBgColor
       }
     }
   })

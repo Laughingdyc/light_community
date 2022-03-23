@@ -1,36 +1,32 @@
 <template>
-  <view 
-    :class="$style.square_wrapper"
-    :style="{'min-height': `${ windowHeight - 200 }px`, 'padding-bottom': '200px'}"
-    @touchstart="touchStart" 
-    @touchend="touchEnd"
+  <light-com-tab
+    :tabList="tabList"
+    :current="current_tab"
+    @handleClick="handleClick"
   >
-    <square-tabs>
-      <template v-slot:tab_1 >
-        <view :class="$style.wrapper">
-          <preview-posts :listData="listData_recommend"></preview-posts>
-        </view>
-      </template>
-      <template v-slot:tab_2>
-        <view :class="$style.wrapper">
-          <preview-posts :listData="listData_idle"></preview-posts>
-        </view>
-      </template>
-      <template v-slot:tab_3>
-        <view :class="$style.wrapper">
-          <preview-posts :listData="listData_academic"></preview-posts>
-        </view>
-      </template>
-    </square-tabs>
-  </view>
+    <template v-slot:tab_0>
+      <view :class="$style.wrapper">
+        <preview-posts :listData="listData_recommend"></preview-posts>
+      </view>
+    </template>
+    <template v-slot:tab_1>
+      <view :class="$style.wrapper">
+        <preview-posts :listData="listData_idle"></preview-posts>
+      </view>
+    </template>
+    <template v-slot:tab_2>
+      <view :class="$style.wrapper">
+        <preview-posts :listData="listData_academic"></preview-posts>
+      </view>
+    </template>
+  </light-com-tab>
 </template>
 
 <script lang="ts">
+  import LightComTab from '../../components/LightComTab/LightComTab.vue'
   import PreviewPosts, { iListData } from '../../components/PreviewPosts/PreviewPosts.vue'
-  import SquareTabs from '../../components/SquareTabs/SquareTabs.vue'
-  import { defineComponent, reactive, toRefs, computed, ref, onMounted } from 'vue'
+  import { defineComponent, reactive, toRefs, computed, ref } from 'vue'
   import { useStore } from 'vuex'
-  import Taro , { usePageScroll } from '@tarojs/taro'
   
 
   interface iState {
@@ -47,34 +43,12 @@
     name: 'homepage',
     components: {
       PreviewPosts,
-      SquareTabs
+      LightComTab
     },
     setup () {
-      /**
-       * 防抖
-       */
-      let readyToDo: NodeJS.Timeout | null = null
-      const debounce = ( callback ) => {
-        readyToDo && clearTimeout(readyToDo)
-        readyToDo = setTimeout(() => { callback() }, 200);
-      }
-      /**
-       * 监听页面滚动 hook
-       */
-      usePageScroll(({ scrollTop }) => {
-        debounce(() => {
-          store.dispatch('set_square_lastest_scroll_top', scrollTop)
-        })
-      })
-      
-      onMounted(() => {
-        getScreenWH()
-      })
-
       const current_tab = computed(() => store.getters.square_current_tab)
-
+      const tabList = ref(['推荐', '二手闲置', '学术讨论', '交友互动', '工作招聘'])
       const store = useStore()
-      const windowHeight = ref(0)
       const state:iState = reactive({
         listData_recommend: [
           { 
@@ -275,72 +249,15 @@
           }
         ]
       })
-      const touch_state = reactive({
-        touch_time : 0,
-        touch_offset_x: 0,
-        touch_offset_y: 0,
-      })
-      /**
-       * 记录触摸数据, 初始时间 & 初始x轴位置
-       * @param e 触摸事件
-       */
-      const touchStart = (e) => {
-        touch_state.touch_offset_y = e.mpEvent.changedTouches[0].pageY
-        touch_state.touch_offset_x = e.mpEvent.changedTouches[0].pageX
-        touch_state.touch_time = e.mpEvent.timeStamp
-      }
-      /**
-       * 计算触摸数据, 触摸时间 & x,y轴位移
-       * Y轴移动 > 40px | 触摸时间 > 0.5s, 判定为误触
-       * X轴移动 > 60px, 进行tab切换
-       * @param e 触摸事件
-       */
-      const touchEnd = (e) => {
-        touch_state.touch_offset_x = e.mpEvent.changedTouches[0].pageX - touch_state.touch_offset_x
-        touch_state.touch_offset_y = e.mpEvent.changedTouches[0].pageY - touch_state.touch_offset_y
-        touch_state.touch_time = e.mpEvent.timeStamp - touch_state.touch_time
-        if ( Math.abs(touch_state.touch_offset_y) > 40 ) {
-          return
-        }
-        if ( touch_state.touch_time > 500 ) {
-          return
-        }
-        if ( touch_state.touch_offset_x < -60 ) {
-          changeTab('next')
-        } else if ( touch_state.touch_offset_x > 60 ) {
-          changeTab('prev')
-        }
-      }
-      /**
-       * 切换tab页
-       */
-      const changeTab = (target: 'prev'| 'next') => {
-        let maxLen = state.listData_recommend.length - 1
-        if ( target === 'prev' && current_tab.value !== 0 ) {
-          // store.dispatch('set_square_current_tab', current_tab.value - 1)
-        } else if ( target === 'next' && current_tab.value !== maxLen ) {
-          // store.dispatch('set_square_current_tab', current_tab.value + 1)
-        }
-      }
-      /**
-       * 获取屏幕宽高
-       */
-      const getScreenWH = () => {
-        Taro.getSystemInfo({
-          success(res) {
-            windowHeight.value = res.windowHeight
-          }
-        })
+
+      const handleClick = (value) => {
+        store.dispatch('set_square_current_tab', value)
       }
       return {
         ...toRefs(state),
-        ...toRefs(touch_state),
         current_tab,
-        windowHeight,
-        getScreenWH,
-        touchStart,
-        touchEnd,
-        changeTab,
+        tabList,
+        handleClick
       }
     }
   })

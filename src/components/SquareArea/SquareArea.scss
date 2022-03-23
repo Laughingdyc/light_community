@@ -1,22 +1,5 @@
-.square_wrapper{
-  padding-bottom: 200px;
-  
-
-  & > view > view{
-      padding-top: 80px;
-
-      & > view:first-child{
-        // color: aqua;
-        position: fixed;
-        top: 0;
-        border-bottom: 1px solid #dddddd;
-        z-index: 100;
-      }
-    }
-  
-  .wrapper{
-    padding: 16px;
-
-  }
-
+.wrapper{
+  padding: 16px;
+  padding-bottom: 280px;
 }
+

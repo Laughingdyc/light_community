@@ -2,7 +2,7 @@
   position: relative;
   height: 120px;
   width: 100%;
-  background-color: #facd91;
+  background-color: $door;
 
 
   .avatar_wrapper{
@@ -31,13 +31,13 @@
 
       .edit{
         font-size: 26px;
-        color: $def_blue;
+        color: $blue_default;
       }
 
       .identity{
         font-size: 600;
         font-size: 26px;
-        color: $def_gold;
+        color: $yellow_warning;
       }
     }
   }
@@ -54,13 +54,13 @@
   @include left_column;
 
   .username{
-    color: $def_head;
+    color: $header;
     font-size: 28px;
     font-weight: 600;
   }
 
   .userid{
-    color: $def_gray;
+    color: $gray_default;
     font-size: 26px;
   }
 }

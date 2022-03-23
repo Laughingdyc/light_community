@@ -1,3 +1,4 @@
+// import { themeColor } from "./common/ts/common.color"
 export default defineAppConfig({
   pages: [
     'pages/homepage/homepage',
@@ -5,7 +6,7 @@ export default defineAppConfig({
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
+    navigationBarBackgroundColor: '#FAFBFC',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   }
