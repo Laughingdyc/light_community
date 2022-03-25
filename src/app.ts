@@ -10,7 +10,8 @@ import {
   AtDivider,
   AtTabsPane,
   AtTabBar,
-  AtFab
+  AtFab,
+  AtSkeleton
 } from 'taro-ui-vue3/lib'
 
 import 'taro-ui-vue3/dist/style/components/icon.scss'
@@ -22,8 +23,10 @@ import "taro-ui-vue3/dist/style/components/article.scss"
 import "taro-ui-vue3/dist/style/components/divider.scss"
 import "taro-ui-vue3/dist/style/components/tab-bar.scss"
 import "taro-ui-vue3/dist/style/components/fab.scss"
+import "taro-ui-vue3/dist/style/components/skeleton.scss"
 
-import './app.scss'
+import './app.scss';
+import 'animate.css';
 
 const tuv3 = createUI({
   AtIcon,
@@ -34,7 +37,8 @@ const tuv3 = createUI({
   AtDivider,
   AtTabsPane,
   AtTabBar,
-  AtFab
+  AtFab,
+  AtSkeleton
 })
 const App = createApp({
   onShow (options) {},

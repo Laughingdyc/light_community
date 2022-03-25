@@ -1,5 +1,5 @@
 <template>
-  <light-com-tab></light-com-tab>
+  
 </template>
 
 <script>

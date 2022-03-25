@@ -1,6 +1,6 @@
 <template>
-  <view :class="$style.wrapper" v-for="(data, index) in listData" :key="data.id">
-    <view :class="$style.user_info_wrapper">
+  <view :class="[$style.wrapper, 'animate__animated animate__fadeInUp']" v-for="(data, index) in listData" :key="data.id">
+    <view :class="[$style.user_info_wrapper, ]">
       <AtAvatar :class="$style.avatar" size='small' :circle='true' :image='data.avatar'></AtAvatar>
       <view :class="$style.exclude_avatar_wapper">
         <view :class="[$style.top_and_bot, $style.top_view]">
