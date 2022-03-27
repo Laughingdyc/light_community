@@ -41,28 +41,30 @@
         <text>{{ '更多' }}</text>
       </view>
     </view>
+    <view :class="$style.tag_wrapper" v-if="showTag && data.tagName">
+      <view :class="$style['tag']" class='at-icon at-icon-tag'>
+        <text :class="$style['tag']">{{ data.tagName }}</text>
+      </view>
+    </view>
     <AtDivider v-if="listData && (index < listData.length - 1)" content='' height='60' lineColor='#eeeeee' />
   </view>
 </template>
 
 <script lang="ts">
   import { defineComponent, reactive, toRefs, PropType, onMounted } from 'vue'
-  export interface iListData {
-    id      : number,
-    avatar  : string,
-    name    : string,
-    time    : string,
-    content : string,
-    views   : number,
-    comments: number,
-    imgs    : string[]
-  }
+  import { iListData } from '../../common/ts/common.interface'
+
   export default defineComponent ({
     props: {
       listData: {
         require: true,
         type: Object as PropType<iListData[]>
-      }
+      },
+      showTag: {
+        require: false,
+        type: Boolean,
+        default: false
+      },
     },
     setup () {
       const state = reactive({})

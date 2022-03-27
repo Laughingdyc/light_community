@@ -6,28 +6,28 @@
   >
     <template v-slot:tab_0>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image " :loading="isLoading.tab_0">
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
           <preview-posts :listData="listData_recommend"></preview-posts>
         </at-skeleton>
       </view>
     </template>
     <template v-slot:tab_1>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image" :loading="isLoading.tab_1">
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
           <preview-posts :listData="listData_idle"></preview-posts>
         </at-skeleton>
       </view>
     </template>
     <template v-slot:tab_2>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image" :loading="isLoading.tab_2">
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_2">
           <preview-posts :listData="listData_academic"></preview-posts>
         </at-skeleton>
       </view>
     </template>
     <template v-slot:tab_3>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image" :loading="isLoading.tab_3">
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_3">
           <preview-posts :listData="listData_make_frds"></preview-posts>
         </at-skeleton>
       </view>
@@ -38,18 +38,11 @@
 <script lang="ts">
   import { listData_recommend, listData_idle, listData_academic, listData_make_frds } from "../../common/ts/static_data_for_dev"
   import LightComTab from '../../components/LightComTab/LightComTab.vue'
-  import PreviewPosts, { iListData } from '../../components/PreviewPosts/PreviewPosts.vue'
+  import PreviewPosts from '../../components/PreviewPosts/PreviewPosts.vue'
+  import { iState } from '../../common/ts/common.interface'
   import { defineComponent, reactive, toRefs, computed, ref, onMounted } from 'vue'
   import { useStore } from 'vuex'
-  
-
-  interface iState {
-    listData_recommend: iListData[],
-    listData_idle: iListData[],
-    listData_academic: iListData[],
-    listData_make_frds: iListData[],
-  }
-
+  // import Taro from "@tarojs/taro"
   
 
   export default defineComponent ({
@@ -60,10 +53,24 @@
     },
     setup () {
       onMounted(() => {
+        // 目前mock一下数据
+        // Taro.request({
+        //   url: 'https://www.lightcommunity.com/squareList', //仅为示例，并非真实的接口地址
+        //   data: {
+        //     type: '0'
+        //   },
+        //   header: {
+        //     'content-type': 'application/json' // 默认值
+        //   },
+        //   success: function (res) {
+        //     isLoading.value.tab_0 = false
+        //     state.listData_recommend = res.data
+        //   }
+        // })
         setTimeout(() => {
           isLoading.value.tab_0 = false
           state.listData_recommend = listData_recommend
-        }, 2000);
+        }, 500);
       })
       const isLoading = ref({
         tab_0: true,
@@ -80,7 +87,9 @@
         listData_academic: [],
         listData_make_frds: []
       })
-
+      /**
+       * tab页切换动作
+       */
       const handleClick = (value) => {
         store.dispatch('set_square_current_tab', value).then(() => {
           setTimeout(() => {
@@ -99,7 +108,7 @@
                 state.listData_make_frds = listData_make_frds
                 break;
             }
-          }, 2000);
+          }, 500);
         })
       }
       return {

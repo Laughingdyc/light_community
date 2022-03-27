@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+@mixin vertical_center {
+  display: flex;
+  align-items: center;
+}
+
 @mixin left {
   display: flex;
   justify-content: flex-start;

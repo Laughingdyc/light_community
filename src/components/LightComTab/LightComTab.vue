@@ -16,7 +16,7 @@
   <swiper v-if="tabList.length" :style="{ 'height': height }" @change="bindchange" :current="current">
     <block v-for="(item, index) in tabList" :key="item">
       <swiper-item>
-        <scroll-view :enable-back-to-top="true" :scroll-y="true" :class="$style['LC_tab__scroll_view']">
+        <scroll-view :enable-back-to-top="true" :scroll-y="true" :style="{ 'height': height }" :class="$style['LC_tab__scroll_view']">
           <slot :name="`tab_${index}`"></slot>
         </scroll-view>
       </swiper-item>
@@ -83,7 +83,7 @@
        */
       const tWidth = ref(
         props['tabWidth'] > 0 && props['tabWidth'] < 750
-          ? `${ props['tabList'] }px` 
+          ? `${ props['tabWidth'] }px` 
           : props['tabList'].length < 6
               ? `${ 100 / props['tabList'].length }%`
               : `20%`

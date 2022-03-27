@@ -1,5 +1,13 @@
+:global(.at-skeleton__image) {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10rpx;
+}
 .wrapper{
   width: 100%;
+  animation-duration: 0.5s;
 
   .user_info_wrapper{
     @include between;
@@ -89,6 +97,19 @@
       border-radius: 20px;
       width: 200px;
       height: 200px;
+    }
+  }
+
+  .tag_wrapper{
+    margin: 10px;
+    height: 30px;
+    width: 100%;
+    @include vertical_center;
+
+    .tag{
+      line-height: 30px;
+      font-size: $normal_font_size;
+      color: $gray_default;
     }
   }
 }

@@ -4,6 +4,7 @@ const default_avatar_3 = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F
 export const listData_recommend = [
   { 
     id: 0,
+    type: 0,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -13,6 +14,7 @@ export const listData_recommend = [
     imgs: [] 
   },{ 
     id: 1,
+    type: 1,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -22,6 +24,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1] 
   },{ 
     id: 2,
+    type: 2,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -31,6 +34,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 1,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -40,6 +44,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 2,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -49,6 +54,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 1,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -58,6 +64,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 3,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -67,6 +74,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 0,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -76,6 +84,7 @@ export const listData_recommend = [
     imgs: [default_avatar_1, default_avatar_1, default_avatar_1] 
   },{ 
     id: 3,
+    type: 0,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
@@ -88,6 +97,7 @@ export const listData_recommend = [
 export const listData_idle = [
   {
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -97,6 +107,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -106,6 +117,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -115,6 +127,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -124,6 +137,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -133,6 +147,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -142,6 +157,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -151,6 +167,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -160,6 +177,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -169,6 +187,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -178,6 +197,7 @@ export const listData_idle = [
     imgs: [default_avatar_2, default_avatar_2, default_avatar_2] 
   },{
     id: 4,
+    type: 0,
     avatar: default_avatar_2,
     name: 'DoYouCare', 
     time: '2022/3/20 19:50:20',
@@ -190,6 +210,7 @@ export const listData_idle = [
 export const listData_academic = [
   {
     id: 5,
+    type: 1,
     avatar: default_avatar_3,
     name: 'DoYouCare', 
     time: '1898/3/20 19:50:20',
@@ -202,6 +223,7 @@ export const listData_academic = [
 export const listData_make_frds = [
   { 
     id: 1,
+    type: 2,
     avatar: default_avatar_1,
     name: '飞翔的豆腐', 
     time: '3 mins ago',
