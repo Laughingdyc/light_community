@@ -29,19 +29,23 @@
   >
     <template v-slot:tab_0>
       <view :class="$style['content_wrapper']">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, paragraph, divider" :loading="isLoading.tab_0">
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
           <preview-posts :listData="listData_self_post" :showTag="true"></preview-posts>
         </at-skeleton>
       </view>
     </template>
     <template v-slot:tab_1>
       <view :class="$style['content_wrapper']">
-        待开发...
+        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
+          <preview-posts :listData="listData_self_participate" :showTag="true"></preview-posts>
+        </at-skeleton>
       </view>
     </template>
     <template v-slot:tab_2>
       <view :class="$style['content_wrapper']">
-        待开发...
+        <at-skeleton type="list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider" :loading="isLoading.tab_2">
+          <mine-message :listData="mine_message_list"></mine-message>
+        </at-skeleton>
       </view>
     </template>
   </light-com-tab>
@@ -52,17 +56,21 @@
   import LightComTab from '../../components/LightComTab/LightComTab.vue'
   import PreviewPosts from '../../components/PreviewPosts/PreviewPosts.vue'
   import { computed, defineComponent, onMounted, reactive, ref, toRefs } from 'vue'
-  import { iListData } from '../../common/ts/common.interface'
+  import { iListData, iMessage } from '../../common/ts/common.interface'
   import { useStore } from 'vuex'
-  import { listData_recommend } from "../../common/ts/static_data_for_dev"
+  import { listData_recommend, mine_message_list } from "../../common/ts/static_data_for_dev"
+  import MineMessage from '../MineMessage/MineMessage.vue'
   interface iState {
-    listData_self_post: iListData[]
+    listData_self_post: iListData[],
+    listData_self_participate: iListData[],
+    mine_message_list: iMessage[]
   }
   const default_avatar_1 = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic_source%2Fc3%2Fbb%2F20%2Fc3bb20c1b20a8b4cf3ff7c34fb60fa32.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650302670&t=f7e49563c2ab54ab9e1f3b9db841e6b1'
   export default defineComponent ({
     components: {
       LightComTab,
-      PreviewPosts
+      PreviewPosts,
+      MineMessage
     },
     data() {
       return{
@@ -83,7 +91,7 @@
       const state: iState = reactive({
         listData_self_post: [],
         listData_self_participate: [],
-        listData_academic: [],
+        mine_message_list: [],
       })
       const store = useStore()
       const current_tab = computed(() => store.getters.mine_current_tab)
@@ -108,7 +116,20 @@
        */
       const handleClick = (value) => {
         store.dispatch('set_mine_current_tab', value).then(() => {
-          
+          setTimeout(() => {
+            isLoading.value[`tab_${current_tab.value}`] = false
+            switch (current_tab.value) {
+              case 0:
+                state.listData_self_post = listData_recommend
+                break;
+              case 1:
+                state.listData_self_participate = listData_recommend
+                break;
+              case 2:
+                state.mine_message_list = mine_message_list
+                break;
+            }
+          }, 500);
         })
       }
       return {

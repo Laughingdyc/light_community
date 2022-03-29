@@ -17,3 +17,13 @@ export interface iState {
   listData_academic: iListData[],
   listData_make_frds: iListData[],
 }
+
+export interface iMessage {
+  id: number;
+  type: number;
+  avatar: string;
+  name: string;
+  time: string;
+  comment: string;
+  isRead: boolean;
+}

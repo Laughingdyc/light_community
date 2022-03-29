@@ -233,3 +233,87 @@ export const listData_make_frds = [
     imgs: [default_avatar_1] 
   }
 ]
+export const mine_message_list = [
+  {
+    id: 1,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '生活是种律动，须有光有影，有左有右，有晴有雨，滋味就含在这变而不猛的曲折里',
+    isRead: false
+  },{
+    id: 2,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '大劫大难之后人不该失去锐气，不该失去热度，你镇定了但仍在燃烧，你平稳了却更加浩荡',
+    isRead: false
+  },{
+    id: 3,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 4,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 5,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: false
+  },{
+    id: 6,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 7,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 8,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 9,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },{
+    id: 10,
+    type: 1,
+    avatar: default_avatar_3,
+    name: 'DoYouCare', 
+    time: '1898/3/20 19:50:20',
+    comment: '不必匆忙，不必火花四溅，不必成为别人，只需成为自己。',
+    isRead: true
+  },
+  
+]

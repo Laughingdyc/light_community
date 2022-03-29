@@ -34,6 +34,13 @@
   align-items: center;
 }
 
+@mixin around_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 @mixin ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;

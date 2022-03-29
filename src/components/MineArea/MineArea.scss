@@ -30,13 +30,13 @@
       height: 100%;
 
       .edit{
-        font-size: 26px;
+        font-size: $normal_font_size;
         color: $blue_default;
       }
 
       .identity{
         font-size: 600;
-        font-size: 26px;
+        font-size: $normal_font_size;
         color: $yellow_warning;
       }
     }
@@ -55,13 +55,13 @@
 
   .username{
     color: $header;
-    font-size: 28px;
+    font-size: $big_font_size;
     font-weight: 600;
   }
 
   .userid{
     color: $gray_default;
-    font-size: 26px;
+    font-size: $normal_font_size;
   }
 }
 .mine_tabs_wrapper{

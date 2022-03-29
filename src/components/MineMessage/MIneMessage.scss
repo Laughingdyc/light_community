@@ -1,0 +1,62 @@
+.wrapper{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  @include between;
+
+  .avatar_wrapper{
+    @include center;
+
+    .avatar{
+      display: inline;
+      margin: 10px;
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .content_wrapper{
+    width: calc(100% - 100px);
+
+    .name_and_time{
+      line-height: 50px;
+      width: 100%;
+      @include between;
+
+      .name{
+        max-width: 50%;
+        font-size: $normal_font_size;
+        font-weight: 900;
+        color: $yellow_warning;
+        @include ellipsis;
+      }
+
+      .time{
+        max-width: 50%;
+        font-size: $small_font_size;
+        font-weight: 400;
+        color: $gray_default;
+        @include ellipsis;
+      }
+    }
+    .comment_and_label{
+      line-height: 50px;
+      width: 100%;
+      @include between;
+
+      .comment{
+        max-width: calc(100% - 32px);
+        font-size: $small_font_size;
+        font-weight: 400;
+        color: $gray_default;
+        @include ellipsis;
+      }
+
+      .label{
+        max-width: 32px;
+        font-size: $small_font_size;
+        color: $red_negative;
+      }
+    }
+  }
+}

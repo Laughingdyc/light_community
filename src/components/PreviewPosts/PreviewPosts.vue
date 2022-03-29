@@ -46,7 +46,7 @@
         <text :class="$style['tag']">{{ data.tagName }}</text>
       </view>
     </view>
-    <AtDivider v-if="listData && (index < listData.length - 1)" content='' height='60' lineColor='#eeeeee' />
+    <AtDivider v-if="listData && (index < listData.length - 1)" content='' height='60' lineColor='#EEF0F0' />
   </view>
 </template>
 

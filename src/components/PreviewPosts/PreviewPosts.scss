@@ -35,17 +35,17 @@
 
           .name{
             max-width: 50%;
-            font-size: 24px;
-            font-weight: 600;
-            color: #F59A23;
+            font-size: $small_font_size;
+            font-weight: 900;
+            color: $yellow_warning;
             @include ellipsis;
           }
 
           .time{
             max-width: 50%;
-            font-size: 24px;
+            font-size: $small_font_size;
             font-weight: 400;
-            color: #AAB2BD;
+            color: $gray_default;
             @include ellipsis;
           }
         }
@@ -57,9 +57,9 @@
           .comments{
             margin-right: 20px;
             max-width: 50%;
-            font-size: 24px;
+            font-size: $small_font_size;
             font-weight: 400;
-            color: #AAB2BD;
+            color: $gray_default;
             @include ellipsis;
           }
         }
