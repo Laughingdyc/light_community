@@ -2,6 +2,7 @@
 export default defineAppConfig({
   pages: [
     'pages/homepage/homepage',
+    'pages/contentPage/contentPage',
     'pages/testpage/testpage',
   ],
   window: {

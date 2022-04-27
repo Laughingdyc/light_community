@@ -126,5 +126,6 @@
 </script>
 
 <style lang="sass" module>
+  @import '../../common/style/common.scss'
   @import './HomePageBotTabs.scss'
 </style>
