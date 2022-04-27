@@ -5,7 +5,7 @@
     </AtFab>
   </view>
   <AtTabBar
-    :backgroundColor='botTabBgColor'
+    :class="$style['AtTabBar']"
     fixed
     :tabList="tabList"
     @click="handleClick($event)"
