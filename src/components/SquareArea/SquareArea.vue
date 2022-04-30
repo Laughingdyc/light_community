@@ -7,7 +7,7 @@
     <template v-slot:tab_0>
       <view :class="$style.wrapper">
         <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
-          <preview-posts :listData="listData_recommend"></preview-posts>
+          <preview-posts @tap="goContentDetail()" :listData="listData_recommend"></preview-posts>
         </at-skeleton>
       </view>
     </template>
@@ -111,12 +111,16 @@
           }, 500);
         })
       }
+      const goContentDetail = () => {
+        console.log('clicked')
+      }
       return {
         ...toRefs(state),
         current_tab,
         tabList,
         handleClick,
-        isLoading
+        isLoading,
+        goContentDetail
       }
     }
   })

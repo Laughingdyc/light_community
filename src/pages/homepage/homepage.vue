@@ -1,5 +1,5 @@
 <template>
-  <view v-show="current_bot_tab === 0">
+  <view v-show="current_bot_tab === 0" @tap="goContentDetail()">
     <square-area></square-area>
   </view>
 
@@ -16,6 +16,7 @@
   import SquareArea from '../../components/SquareArea/SquareArea.vue'
   import { defineComponent, computed } from 'vue'
   import { useStore } from 'vuex'
+import Taro from '@tarojs/taro'
 
   export default defineComponent ({
     name: 'homepage',
@@ -25,10 +26,17 @@
       HomePageBotTabs,
     },
     setup () {
+      const goContentDetail = () => {
+        console.log('clicked')
+        Taro.navigateTo({
+          url: '/pages/contentPage/contentPage'
+        })
+      }
       const store = useStore()
       const current_bot_tab = computed(() => store.getters.homepage_bot_tab)
       return {
-        current_bot_tab
+        current_bot_tab,
+        goContentDetail
       }
     }
   })
