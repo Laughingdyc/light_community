@@ -1,19 +1,27 @@
 <template>
-  <main-content></main-content>
-  <comments></comments>
+  <!-- <Background></Background> -->
+  <Default-main-content></Default-main-content>
+  <Default-tab></Default-tab>
+  <Default-comments :showLine="true"></Default-comments>
+  <Default-comments></Default-comments>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import MainContent from '../../components/ContentPageComponents/MainContent/MainContent.vue'
-import Comments from '../../components/ContentPageComponents/Comments/Comments.vue'
+import { defineComponent, ref } from 'vue'
+import DefaultTab from '../../components/ContentPageComponents/DefaultTab/DefaultTab.vue'
+import DefaultMainContent from '../../components/ContentPageComponents/DefaultMainContent/DefaultMainContent.vue'
+import DefaultComments from '../../components/ContentPageComponents/DefaultComments/DefaultComments.vue'
 export default defineComponent({
   components: {
-      MainContent,
-      Comments
+    DefaultTab,
+    DefaultMainContent,
+    DefaultComments
   },
   setup() {
-    
+    const comments = ref(10)
+    return {
+      comments
+    }
   },
 })
 </script>

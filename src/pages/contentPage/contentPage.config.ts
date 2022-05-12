@@ -1,5 +1,4 @@
 
 export default definePageConfig({
-  navigationStyle: 'custom',
-  // navigationStyle: "custom"
+  navigationBarTitleText: '帖子详情',
 })

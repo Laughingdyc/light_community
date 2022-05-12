@@ -1,18 +1,19 @@
 .content-outer-wrapper{
+  padding: 20px 20px 35px 20px;
+  background: $off_white_bg;
+
+  .content-header{
+    font-size: $header_font_size;
+    color: $header;
+    font-weight: 900;
+  }
 
   .content-inner-wrapper{
     @include left_column_sb;
+    margin-top: 40px;
     box-sizing: border-box;
-    margin: 200px 30px 0;
-    width: 690px;
+    width: 100%;
     min-height: 200px;
-    padding: 20px 20px 35px 20px;
-    background: $off_white_bg;
-    border-radius: 25px;
-    box-shadow: 0rpx 4rpx 14rpx 0rpx rgba(0, 0, 0, 0.07);
-    border-radius: 20rpx;
-    opacity: 0.92;
-    border: 1rpx solid #F2F0F0;
 
     .content-authore-wrapper{
       @include left;
@@ -32,6 +33,7 @@
 
         .content-author-name{
           @include ellipsis;
+          padding-top: 6px;
           width: 100%;
           font-size: $big_font_size;
           font-weight: 900;
@@ -47,19 +49,12 @@
       }
     }
 
-    .content-header{
-      margin-top: 20px;
-      font-size: $header_font_size;
-      color: $header;
-      font-weight: 600;
-    }
-
     .content{
       margin-top: 20px;
       font-size: $big_font_size;
       color: $dark_default;
       line-height: 42px;
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .post-time{
@@ -69,6 +64,22 @@
       font-size: $small_font_size;
       font-weight: 400;
       color: $gray_default;
+    }
+  }
+  .icons{
+    margin-top: 35px;
+    width: 100%;
+    font-size: $normal_font_size;
+    font-weight: 400;
+    color: $gray_default;
+    @include around;
+
+    .icon{
+      font-size: $icon_default_size;
+    }
+
+    .icons-desc{
+      padding-left: 10px;
     }
   }
 }

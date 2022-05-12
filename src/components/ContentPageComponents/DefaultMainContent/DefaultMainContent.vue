@@ -1,5 +1,8 @@
 <template>
   <view :class="$style['content-outer-wrapper']">
+    <view :class="$style['content-header']">
+      {{ '躺平了能睡着' }}
+    </view>
     <view :class="$style['content-inner-wrapper']">
       <view>
         <view :class="$style['content-authore-wrapper']">
@@ -9,16 +12,20 @@
             <text :class="$style['content-post-info']">{{ '04-28 00:35:20' }}</text>
           </view>
         </view>
-        <view :class="$style['content-header']">
-          {{ '<小王子>' }}
-        </view>
         <view :class="$style['content']">
-          {{ `当你真的喜欢一个人的时候，就会想很多，会很容易办蠢事，说傻话。在这颗蓝色的星球上，我本有着阻挡一切困难的勇气，但在喜欢你这件事上，我脆弱地像一个孤单的小鬼。` }}
+          {{ `晚上睡不着觉，我妈告诉我，躺平了才能睡着，卷着是睡不着的` }}
         </view>
       </view>
-      <!-- <view :class="$style['post-time']">
-        {{ '2022-04-28 00:35:20' }}
-      </view> -->
+    </view>
+    <view :class="$style['icons']">
+      <text>
+        <text class="icon-thumbs-up" :class="[$style['icon-thumbs-up'], $style['icon']]"></text>
+        <text :class="$style['icons-desc']">{{ '2' }}</text>
+      </text>
+      <text>
+        <text class="icon-thumbs-down" :class="[$style['icon-thumbs-down'], $style['icon']]"></text>
+        <text :class="$style['icons-desc']">{{ '踩' }}</text>
+      </text>
     </view>
   </view>
 </template>
@@ -32,7 +39,7 @@ export default defineComponent({
     const bg_style = ref({})
     const img_style = ref({})
     onMounted(() => {
-      avatar.value = `http://175.27.165.106/static/123.jpg`
+      avatar.value = `http://175.27.165.106/static/2.png`
     })
 
     return {
@@ -46,5 +53,5 @@ export default defineComponent({
 
 <style lang="sass" module>
   @import '../../../common/style/common.scss'
-  @import './MainContent.scss'
+  @import './DefaultMainContent.scss'
 </style>

@@ -1,0 +1,111 @@
+.comments-outer-wrapper{
+  padding: 20px 20px 0 20px;
+  background: $off_white_bg;
+
+  .comments-inner-wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .avatar-wrapper{
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+
+    .avatar{
+      margin: 10px;
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .comment-wrapper{
+    padding: 6px 0 20px 0;
+    display: inline-block;
+    width: 600px;
+    height: 100%;
+
+    .comment-author-name{
+      @include ellipsis;
+      width: 100%;
+      font-size: $big_font_size;
+      font-weight: 600;
+      color: $blue_default;
+    }
+
+    .comment-content{
+      margin-top: 10px;
+      width: 100%;
+      font-size: $big_font_size;
+      font-weight: 400;
+      color: $dark_default;
+    }
+
+    .sub-comment-wrapper{
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 20px;
+      width: 100%;
+      background: $light_blue_bg;
+
+      .sub-comment{
+
+        .sub-comment-author{
+          font-size: $small_font_size;
+          font-weight: 600;
+          color: $blue_info;
+        }
+
+        .sub-comment-reply-wrapper{
+
+          .sub-comment-reply{
+            font-size: $small_font_size;
+            font-weight: 400;
+            color: $gray_default;
+          }
+
+          .sub-comment-reply-to{
+            font-size: $small_font_size;
+            font-weight: 600;
+            color: $blue_info;
+          }
+        }
+
+        .sub-comment-content{
+          font-size: $small_font_size;
+          font-weight: 400;
+          color: $dark_default;
+        }
+      }
+    }
+
+    .comment-info-wrapper{
+      @include between;
+      margin-top: 25px;
+
+      .comment-time{
+        width: 100%;
+        font-size: $small_font_size;
+        font-weight: 400;
+        color: $gray_default;
+      }
+
+      .comment-operate-wrapper{
+        @include around;
+        font-size: $small_font_size;
+        width: 250px;
+        color: $gray_default;
+
+        .icons-desc{
+          padding-left: 4rpx;
+        }
+      }
+    }
+  }
+
+  .comment-bottom-line{
+    border-bottom: $light_blue_bg 1px solid;
+  }
+}

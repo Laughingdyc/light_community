@@ -1,38 +1,38 @@
 <template>
-  <light-com-tab
+  <Light-com-tab
     :tabList="tabList"
     :current="current_tab"
     @handleClick="handleClick"
   >
     <template v-slot:tab_0>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
-          <preview-posts @tap="goContentDetail()" :listData="listData_recommend"></preview-posts>
-        </at-skeleton>
+        <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
+          <Preview-posts @tap="goContentDetail()" :listData="listData_recommend"></Preview-posts>
+        </At-skeleton>
       </view>
     </template>
     <template v-slot:tab_1>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
-          <preview-posts :listData="listData_idle"></preview-posts>
-        </at-skeleton>
+        <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
+          <Preview-posts :listData="listData_idle"></Preview-posts>
+        </At-skeleton>
       </view>
     </template>
     <template v-slot:tab_2>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_2">
-          <preview-posts :listData="listData_academic"></preview-posts>
-        </at-skeleton>
+        <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_2">
+          <Preview-posts :listData="listData_academic"></Preview-posts>
+        </At-skeleton>
       </view>
     </template>
     <template v-slot:tab_3>
       <view :class="$style.wrapper">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_3">
-          <preview-posts :listData="listData_make_frds"></preview-posts>
-        </at-skeleton>
+        <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_3">
+          <Preview-posts :listData="listData_make_frds"></Preview-posts>
+        </At-skeleton>
       </view>
     </template>
-  </light-com-tab>
+  </Light-com-tab>
 </template>
 
 <script lang="ts">

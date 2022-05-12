@@ -20,35 +20,35 @@
     <text :class="$style['userid']">{{ '学号：' + '1601110888' }}</text>
   </view>
   <view :class="$style['mine_tabs_wrapper']">
-    <light-com-tab
-    :tabList="tabList"
-    :current="current_tab"
-    :tabWidth="75"
-    :height="'calc(100vh - 455rpx)'"
-    @handleClick="handleClick"
-  >
-    <template v-slot:tab_0>
-      <view :class="$style['content_wrapper']">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
-          <preview-posts :listData="listData_self_post" :showTag="true"></preview-posts>
-        </at-skeleton>
-      </view>
-    </template>
-    <template v-slot:tab_1>
-      <view :class="$style['content_wrapper']">
-        <at-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
-          <preview-posts :listData="listData_self_participate" :showTag="true"></preview-posts>
-        </at-skeleton>
-      </view>
-    </template>
-    <template v-slot:tab_2>
-      <view :class="$style['content_wrapper']">
-        <at-skeleton type="list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider" :loading="isLoading.tab_2">
-          <mine-message :listData="mine_message_list"></mine-message>
-        </at-skeleton>
-      </view>
-    </template>
-  </light-com-tab>
+    <Light-com-tab
+      :tabList="tabList"
+      :current="current_tab"
+      :tabWidth="75"
+      :height="'calc(100vh - 455rpx)'"
+      @handleClick="handleClick"
+    >
+      <template v-slot:tab_0>
+        <view :class="$style['content_wrapper']">
+          <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_0">
+            <preview-posts :listData="listData_self_post" :showTag="true"></preview-posts>
+          </At-skeleton>
+        </view>
+      </template>
+      <template v-slot:tab_1>
+        <view :class="$style['content_wrapper']">
+          <At-skeleton type="list-item-avatar-two-line, paragraph, divider, list-item-avatar-two-line, image, image, image" :loading="isLoading.tab_1">
+            <preview-posts :listData="listData_self_participate" :showTag="true"></preview-posts>
+          </At-skeleton>
+        </view>
+      </template>
+      <template v-slot:tab_2>
+        <view :class="$style['content_wrapper']">
+          <At-skeleton type="list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider, list-item-avatar-two-line, divider" :loading="isLoading.tab_2">
+            <mine-message :listData="mine_message_list"></mine-message>
+          </At-skeleton>
+        </view>
+      </template>
+    </Light-com-tab>
   </view>
 </template>
 
