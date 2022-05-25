@@ -11,7 +11,8 @@ import {
   AtTabsPane,
   AtTabBar,
   AtFab,
-  AtSkeleton
+  AtSkeleton,
+  AtSearchBar
 } from 'taro-ui-vue3/lib'
 
 import 'taro-ui-vue3/dist/style/components/icon.scss'
@@ -24,6 +25,7 @@ import "taro-ui-vue3/dist/style/components/divider.scss"
 import "taro-ui-vue3/dist/style/components/tab-bar.scss"
 import "taro-ui-vue3/dist/style/components/fab.scss"
 import "taro-ui-vue3/dist/style/components/skeleton.scss"
+import "taro-ui-vue3/dist/style/components/search-bar.scss";
 
 import './app.scss';
 import 'animate.css';
@@ -38,7 +40,8 @@ const tuv3 = createUI({
   AtTabsPane,
   AtTabBar,
   AtFab,
-  AtSkeleton
+  AtSkeleton,
+  AtSearchBar
 })
 const App = createApp({
   onShow (options) {},

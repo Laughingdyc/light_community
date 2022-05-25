@@ -5,23 +5,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup() {
-    const avatar = ref('')
-    const bg_style = ref({})
-    const img_style = ref({})
-    onMounted(() => {
-      avatar.value = `http://175.27.165.106/static/123.jpg`
-    })
-
-    return {
-      bg_style,
-      img_style,
-      avatar
-    }
-  },
+  setup() { },
 })
 </script>
 

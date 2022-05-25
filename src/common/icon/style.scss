@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'LC';
-  src:  url('fonts/LC.eot?d3h8dd');
-  src:  url('fonts/LC.eot?d3h8dd#iefix') format('embedded-opentype'),
-    url('fonts/LC.ttf?d3h8dd') format('truetype'),
-    url('fonts/LC.woff?d3h8dd') format('woff'),
-    url('fonts/LC.svg?d3h8dd#LC') format('svg');
+  src:  url('fonts/LC.eot?oxlr0j');
+  src:  url('fonts/LC.eot?oxlr0j#iefix') format('embedded-opentype'),
+    url('fonts/LC.ttf?oxlr0j') format('truetype'),
+    url('fonts/LC.woff?oxlr0j') format('woff'),
+    url('fonts/LC.svg?oxlr0j#LC') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,27 +25,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-view:before {
+  content: "\e906";
+}
+.icon-share:before {
+  content: "\e902";
+}
+.icon-comment:before {
+  content: "\e903";
+}
 .icon-thumbs-down:before {
-  content: "\e9c2";
+  content: "\e904";
+}
+.icon-thumbs-down-full:before {
+  content: "\e905";
 }
 .icon-thumbs-up:before {
-  content: "\e9c3";
+  content: "\e900";
+}
+.icon-thumbs-up-full:before {
+  content: "\e901";
 }
 .icon-trash:before {
   content: "\e9c5";
 }
+.icon-down2:before {
+  content: "\e90e";
+}
 .icon-forward:before {
   content: "\e912";
 }
-.icon-bubble2:before {
-  content: "\e96e";
+.icon-up:before {
+  content: "\e927";
 }
 .icon-star-empty:before {
   content: "\e9d7";
 }
 .icon-star-full:before {
   content: "\e9d9";
-}
-.icon-share2:before {
-  content: "\ea82";
 }

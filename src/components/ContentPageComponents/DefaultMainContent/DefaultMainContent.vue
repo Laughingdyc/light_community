@@ -1,51 +1,65 @@
 <template>
   <view :class="$style['content-outer-wrapper']">
     <view :class="$style['content-header']">
-      {{ '躺平了能睡着' }}
+      {{ content_data.title }}
     </view>
     <view :class="$style['content-inner-wrapper']">
       <view>
         <view :class="$style['content-authore-wrapper']">
-          <AtAvatar v-if="avatar" :class="$style['content-avatar']" size='small' :circle='true' :image='avatar'></AtAvatar>
+          <AtAvatar v-if="content_data.avatar" :class="$style['content-avatar']" size='small' :circle='true' :image='content_data.avatar'></AtAvatar>
           <view :class="$style['content-author-wrapper']">
-            <text :class="$style['content-author-name']">{{ '飞翔的豆腐' }}</text>
-            <text :class="$style['content-post-info']">{{ '04-28 00:35:20' }}</text>
+            <text :class="$style['content-author-name']">{{ content_data.author }}</text>
+            <text :class="$style['content-post-info']">{{ content_data.post_time }}</text>
           </view>
         </view>
         <view :class="$style['content']">
-          {{ `晚上睡不着觉，我妈告诉我，躺平了才能睡着，卷着是睡不着的` }}
+          {{ content_data.content }}
         </view>
       </view>
     </view>
-    <view :class="$style['icons']">
-      <text>
-        <text class="icon-thumbs-up" :class="[$style['icon-thumbs-up'], $style['icon']]"></text>
-        <text :class="$style['icons-desc']">{{ '2' }}</text>
-      </text>
-      <text>
-        <text class="icon-thumbs-down" :class="[$style['icon-thumbs-down'], $style['icon']]"></text>
-        <text :class="$style['icons-desc']">{{ '踩' }}</text>
-      </text>
+    <view :class="$style['icons-wrapper']">
+      <view :class="$style['icon-wrapper']">
+        <text class="icon-view" :class="[$style['icon-view']]"></text>
+        <text :class="$style['icons-desc']">{{ content_data.views }}</text>
+      </view>
+      <view :class="$style['icon-wrapper']" @tap="toggleLikeStatus(content_data.is_like)">
+        <text v-if="!content_data.is_like" class="icon-thumbs-up" :class="[$style['icon-thumbs-up']]"></text>
+        <text v-if=" content_data.is_like" class="icon-thumbs-up-full" :class="[$style['icon-thumbs-up-full']]"></text>
+        <text :class="$style['icons-desc']">{{ content_data.like_count }}</text>
+      </view>
+      
     </view>
   </view>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, toRefs } from 'vue'
+import { useStore } from 'vuex'
 
 export default defineComponent({
-  setup() {
-    const avatar = ref('')
-    const bg_style = ref({})
-    const img_style = ref({})
-    onMounted(() => {
-      avatar.value = `http://175.27.165.106/static/2.png`
-    })
+  props: [
+    'content_data'
+  ],
+  setup(props) {
+    const store = useStore()
+    const { content_data } = toRefs(props)
+    onMounted(() => {})
+
+    /**
+     * 切换点赞/踩状态
+     * @param {string}  type 'like' - 赞, 'dislike' - 踩
+     * @param {boolean} pre_status 点击前的状态
+     */
+    const toggleLikeStatus = ( pre_status ) => {
+      content_data.value.is_like = !pre_status
+      pre_status 
+        ? content_data.value.like_count --
+        : content_data.value.like_count ++
+      store.dispatch('set_comments___main_content', { is_like: !pre_status, like_count: content_data.value.like_count })
+    }
 
     return {
-      bg_style,
-      img_style,
-      avatar
+      toggleLikeStatus
     }
   },
 })

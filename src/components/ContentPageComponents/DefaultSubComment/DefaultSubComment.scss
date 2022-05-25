@@ -37,61 +37,15 @@
     }
 
     .comment-content{
-      margin-top: 10px;
+      margin-top: 15px;
       width: 100%;
       font-size: $big_font_size;
       font-weight: 400;
       color: $dark_default;
     }
 
-    .sub-comment-wrapper{
-      box-sizing: border-box;
-      margin-top: 10px;
-      padding: 20px;
-      width: 100%;
-      background: $light_blue_bg;
-
-      .sub-comment{
-
-        .sub-comment-author{
-          font-size: $small_font_size;
-          font-weight: 600;
-          color: $blue_info;
-        }
-
-        .sub-comment-reply-wrapper{
-
-          .sub-comment-reply{
-            font-size: $small_font_size;
-            font-weight: 400;
-            color: $gray_default;
-          }
-
-          .sub-comment-reply-to{
-            font-size: $small_font_size;
-            font-weight: 600;
-            color: $blue_info;
-          }
-        }
-
-        .sub-comment-content{
-          font-size: $small_font_size;
-          font-weight: 400;
-          color: $dark_default;
-        }
-      }
-
-      .sub-comment-btn{
-        padding: 10px 0;
-        font-size: $small_font_size;
-        font-weight: 600;
-        color: $header;
-
-        .icon-down2, .icon-up{
-          padding-left: 4px;
-          font-weight: 900;
-        }
-      }
+    .comment-reply-name{
+      padding: 0 6px;
     }
 
     .comment-info-wrapper{
@@ -125,4 +79,9 @@
   .comment-bottom-line{
     border-bottom: $light_blue_bg 1px solid;
   }
+
+}
+
+.border-bottom{
+  border-bottom: 1px solid $border_color;
 }
