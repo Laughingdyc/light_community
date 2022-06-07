@@ -173,7 +173,13 @@ const comments = {
       ],
     },
     comments___pop_comment: {},
-    comments___reply_focus: false,
+    comments___reply_attr: {
+      reply_content    : '',
+      reply_to_who     : 'someone',   // 默认是楼主
+      reply_to_which_id: '1',         // 默认是楼主id
+      reply_focus      : false,
+      input_visible    : false,
+    },
   },
   /**
    * 不建议直接调用 mutations!, 请用 actions 来完成赋值逻辑
@@ -219,6 +225,11 @@ const comments = {
         state.comments___pop_comment['children'][key] = value[key]
       }
     },
+    SET_COMMENTS___INPUT_ATTR: (state, value) => {
+      for ( let key in value ) {
+        state.comments___reply_attr[key] = value[key]
+      }
+    },
   },
   actions: {
     set_comments___show_sub_pop: ({ commit }, value: boolean) => {
@@ -236,11 +247,15 @@ const comments = {
     set_comments___comment_child: ({ commit }, value) => {
       return commit('SET_COMMENTS___COMMENT_CHILD', value)
     },
+    set_comments___reply_attr: ({ commit }, value) => {
+      return commit('SET_COMMENTS___INPUT_ATTR', value)
+    },
   },
   getters: {
     comments___show_sub_pop: state => state.comments___show_sub_pop,
     comments___pop_comment: state => state.comments___pop_comment,
     comments___main_content: state => state.comments___main_content,
+    comments___reply_attr: state => state.comments___reply_attr,
   }
 
 }

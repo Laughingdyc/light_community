@@ -14,7 +14,7 @@
   </view>
 
   <!-- 回复 -->
-  <Default-reply></Default-reply>
+  <Default-reply v-if="!show_sub_pop"></Default-reply>
   
   <!-- 子评论弹窗 -->
   <page-container 
@@ -26,7 +26,7 @@
       <!-- 内容区域 -->
       <Default-sub-comment-pop></Default-sub-comment-pop>
       <!-- 回复 -->
-      <Default-reply></Default-reply>
+      <Default-reply v-if="show_sub_pop"></Default-reply>
     </scroll-view>
   </page-container>
 </template>

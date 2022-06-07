@@ -43,7 +43,9 @@ export default defineComponent({
   setup(props) {
     const store = useStore()
     const { content_data } = toRefs(props)
-    onMounted(() => {})
+    onMounted(() => {
+      // store.dispatch('set_comments___reply_attr', { reply_focus: true, temp_input_visible: true,})
+    })
 
     /**
      * 切换点赞/踩状态

@@ -1,11 +1,11 @@
 .content-outer-wrapper{
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
   margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
 }
 
 .sub-comment-pop{
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
   margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
   background: $off_white_bg;

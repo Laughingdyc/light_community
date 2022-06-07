@@ -1,5 +1,5 @@
 <template>
-  <view :class="$style['comments-outer-wrapper']">
+  <view :class="$style['comments-outer-wrapper']" @tap="commentClicked">
     <view :class="$style['comments-inner-wrapper']">
       <view :class="$style['avatar-wrapper']">
         <AtAvatar v-if="data.avatar" :class="$style['avatar']" size='small' :circle='true' :image='data.avatar'></AtAvatar>
@@ -26,7 +26,7 @@
         </view>
         <!-- END 子评论 -->
 
-        <view :class="$style['comment-info-wrapper']">
+        <view :class="$style['comment-info-wrapper']" @tap="toStopPropagation">
           <text :class="$style['comment-time']">{{ data.post_time }}</text>
           <view :class="$style['comment-operate-wrapper']">
             <text @tap="toggleLikeStatus( data.is_like )">
@@ -65,12 +65,19 @@ export default defineComponent({
       subComments_visible.value = sub_comments.value.slice(0, 2)
     })
 
+    const toStopPropagation = (e) => {e.stopPropagation()}
+
     // 展示子评论弹窗 
-    const toShowSubPop = () => {
+    const toShowSubPop = (e) => {
+      e.stopPropagation()
       store.dispatch('set_comments___pop_comment', data)
       store.dispatch('set_comments___show_sub_pop', true)
     }
 
+    /**
+     * 切换展开|收起
+     * @param e 
+     */
     const toggleVisibleStatus = (e) => {
       e.stopPropagation()
       showAllSub.value = !showAllSub.value
@@ -81,6 +88,7 @@ export default defineComponent({
      * 点赞 / 取消点赞
      */
     const toggleLikeStatus = (pre_is_like) => {
+      console.log(arguments)
       let _id = { _id: data?.value?.id }
       store.dispatch('set_comments___comment', { ..._id ,is_like: !pre_is_like })
       pre_is_like 
@@ -88,13 +96,19 @@ export default defineComponent({
         : store.dispatch('set_comments___comment', { ..._id, like_count: data?.value?.like_count + 1 })
     }
 
+    const commentClicked = () => {
+      store.dispatch('set_comments___reply_attr', { reply_focus: true, input_visible: true,})
+    }
+
     return {
       sub_comments,
       subComments_visible,
       showAllSub,
+      toStopPropagation,
       toggleVisibleStatus,
       toggleLikeStatus,
       toShowSubPop,
+      commentClicked
     }
   },
 })

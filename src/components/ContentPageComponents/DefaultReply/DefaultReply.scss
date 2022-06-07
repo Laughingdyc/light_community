@@ -1,4 +1,16 @@
+.reply-bg{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  background-color: #333333;
+  opacity: 0.3;
+  touch-action: none;
+}
+
 .reply-outer-wrapper{
+  touch-action: none;
   background-color: $wall;
   @include center;
   position: fixed;
@@ -10,24 +22,44 @@
 
   .reply-inner-wrapper{
     @include center;
-    box-sizing: border-box;
     width: 100%;
+    margin: 10px 20px;
+    border-radius: 40px;
+    line-height: 80px;
+    background-color: $gray_default;
+    color: $light_blue_bg;
+  }
 
-    :global(.at-search-bar){
-      width: 100%;
+  .reply-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    
+    .reply-textarea{
+      width: 550px;
+      margin: 10px 20px;
+      padding: 20px;
+      border-radius: 40px;
+      background-color: $border_color;
+      min-height: 80px;
 
-      :global(.at-icon-search){
-        display: none;
+      textarea{
+        height: 80px;
+        width: 550px;
       }
-      
-      :global(.at-search-bar__clear){
-        display: none !important;
-      }
-      
-      :global(.at-search-bar__input){
-        height: 64px !important;
-        padding: 0 20px;
-      }
+    }
+
+    .submit-btn{
+      // display: inline-flex;
+      // flex-direction: row-reverse;
+
+      background-color: $blue_info;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 0 20px 10px 0;
+      color: $light_blue_bg;
+      font-size: $small_font_size;
     }
   }
 }
